@@ -1,0 +1,28 @@
+{
+    "save": true,
+    "det": {
+        "infer_threads": -1,
+        "model_path": "../models/det",
+        "padding": 0,
+        "max_side_len": 768,
+        "box_thres": 0.5,
+        "bitmap_thres": 0.3,
+        "unclip_ratio": 2.0,
+        "fp16": false
+    },
+    "cls": {
+        "infer_threads": 1,
+        "reco_threads": -1,
+        "model_path": "../models/cls",
+        "enable": true,
+        "most_angle": true,
+        "fp16": false
+    },
+    "rec": {
+        "infer_threads": 1,
+        "reco_threads": -1,
+        "model_path": "../models/rec",
+        "keys_path": "../models/keys.txt",
+        "fp16": false
+    }
+}
