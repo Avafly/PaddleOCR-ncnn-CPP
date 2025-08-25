@@ -1,4 +1,6 @@
-This project provides a C++ OCR implementation inspired by [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) with [ncnn](https://github.com/Tencent/ncnn) as the inference framework. The Release page contains a complete project archive that includes resources like models and images required to run the demo.
+This repository provides C++ implementations of PP-OCRv3 and PP-OCRv5, inspired by the official [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) project and using [ncnn](https://github.com/Tencent/ncnn) for inference.
+
+The Release page contains a complete project archive that includes resources like models (v3 & v5) and images required to run the demo.
 
 ## Demo
 
