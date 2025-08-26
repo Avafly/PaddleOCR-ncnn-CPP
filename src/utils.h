@@ -22,9 +22,9 @@ cv::Mat GetRotatedCropImage(const cv::Mat &image, std::vector<cv::Point> points)
 void Trim(std::string &s);
 
 template <typename T>
-inline T Clamp(T x, T min_x, T max_x)
+inline T Clamp(T val, T min_val, T max_val)
 {
-    return x > min_x ? (x < max_x ? x : max_x) : min_x;
+    return val > min_val ? (val < max_val ? val : max_val) : min_val;
 }
 
 }   // namespace OCR
