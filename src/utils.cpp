@@ -4,7 +4,7 @@
 #include <string_view>
 #include <omp.h>
 
-#include "clipper/clipper.hpp"
+#include "clipper2/clipper.h"
 
 #include "utils.h"
 
@@ -108,23 +108,23 @@ cv::RotatedRect Unclip(const std::vector<cv::Point2f> &boxes, const float unclip
 {
     float distance = GetUnclipDistance(boxes, unclip_ratio);
 
-    ClipperLib::ClipperOffset offset;
-    ClipperLib::Path path{
-        ClipperLib::IntPoint(static_cast<int>(boxes[0].x), static_cast<int>(boxes[0].y)),
-        ClipperLib::IntPoint(static_cast<int>(boxes[1].x), static_cast<int>(boxes[1].y)),
-        ClipperLib::IntPoint(static_cast<int>(boxes[2].x), static_cast<int>(boxes[2].y)),
-        ClipperLib::IntPoint(static_cast<int>(boxes[3].x), static_cast<int>(boxes[3].y))};
-    offset.AddPath(path, ClipperLib::jtRound, ClipperLib::etClosedPolygon);
+    Clipper2Lib::Path64 path{
+        Clipper2Lib::Point64(boxes[0].x, boxes[0].y),
+        Clipper2Lib::Point64(boxes[1].x, boxes[1].y),
+        Clipper2Lib::Point64(boxes[2].x, boxes[2].y),
+        Clipper2Lib::Point64(boxes[3].x, boxes[3].y)
+    };
 
-    ClipperLib::Paths soln;
-    offset.Execute(soln, distance);
+    Clipper2Lib::Paths64 paths_in{path};
+    Clipper2Lib::Paths64 soln = Clipper2Lib::InflatePaths(paths_in, distance,
+        Clipper2Lib::JoinType::Round, Clipper2Lib::EndType::Polygon);
 
     std::vector<cv::Point2f> points;
-    for (size_t i = 0; i < soln.size(); ++i)
+    for (const auto &sol_path : soln)
     {
-        for (size_t j = 0; j < soln.back().size(); ++j)
+        for (const auto &pt : sol_path)
         {
-            points.emplace_back(soln[i][j].X, soln[i][j].Y);
+            points.emplace_back(static_cast<float>(pt.x), static_cast<float>(pt.y));
         }
     }
 

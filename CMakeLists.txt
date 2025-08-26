@@ -21,11 +21,6 @@ find_package(OpenMP REQUIRED)
 set(NCNN_INCLUDE_DIR "${LIB_ROOT}/ncnn/include/ncnn")
 set(NCNN_LIB "${LIB_ROOT}/ncnn/lib/libncnn.a")
 
-# 3rd party: clipper
-add_library(clipper STATIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/3rdparty/clipper/clipper.cpp
-)
-
 # main
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
@@ -34,6 +29,9 @@ set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/crnn_net.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ocr_engine.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utils.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/3rdparty/clipper2/clipper.engine.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/3rdparty/clipper2/clipper.offset.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/3rdparty/clipper2/clipper.rectclip.cpp
 )
 add_executable(main ${SOURCES})
 target_include_directories(main PRIVATE
@@ -46,7 +44,6 @@ target_link_libraries(main PRIVATE
     ${OpenCV_LIBS}
     ${NCNN_LIB}
     OpenMP::OpenMP_CXX
-    clipper
 )
 target_compile_options(main PRIVATE
     -Wall
