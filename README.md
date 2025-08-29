@@ -14,6 +14,15 @@ The Release page contains a complete project archive that includes resources lik
 ./main ../config.json ../images/ocr_img1.png
 ```
 
+## Benchmarks
+
+I ran benchmarks on a RPi 4B using `ocr_img1.png` (simple) and `ocr_img3.png` (complex). You can find those images inside the release page `archive.tar.gz`.
+
+|  Models  | Latency for ocr_img1 | Latency for ocr_img3 |
+| :------: | :------------------: | :------------------: |
+| PP-OCRv3 |       387.80ms       |      5213.68ms       |
+| PP-OCRv5 |       387.05ms       |      6740.93ms       |
+
 ## Notes
 
 Enabling FP16 may be faster but can cause NaN results on some devices. Edit `config.json` to enable or disable FP16.
