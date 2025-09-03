@@ -7,6 +7,13 @@ set(CMAKE_CXX_FLAGS "-O3")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# compile options
+if(MSVC)
+    add_compile_options(/W4)
+else()
+    add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
 # libs path
 set(LIB_ROOT "$ENV{HOME}/Documents/libs")
 
@@ -18,8 +25,8 @@ find_package(OpenEXR QUIET)
 # openmp
 find_package(OpenMP REQUIRED)
 # ncnn
-set(NCNN_INCLUDE_DIR "${LIB_ROOT}/ncnn/include/ncnn")
-set(NCNN_LIB "${LIB_ROOT}/ncnn/lib/libncnn.a")
+set(ncnn_DIR "${LIB_ROOT}/ncnn/lib/cmake/ncnn")
+find_package(ncnn REQUIRED)
 
 # main
 set(SOURCES
@@ -35,19 +42,10 @@ set(SOURCES
 )
 add_executable(main ${SOURCES})
 target_include_directories(main PRIVATE
-    ${OpenCV_INCLUDE_DIRS}
-    ${NCNN_INCLUDE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_CURRENT_SOURCE_DIR}/src/3rdparty
 )
 target_link_libraries(main PRIVATE
     ${OpenCV_LIBS}
-    ${NCNN_LIB}
+    ncnn
     OpenMP::OpenMP_CXX
-)
-target_compile_options(main PRIVATE
-    -Wall
-    -Wextra
-    -Wno-unused-function
-    -Wno-psabi
 )
