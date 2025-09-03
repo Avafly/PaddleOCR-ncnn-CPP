@@ -71,7 +71,7 @@ float BoxScoreFast(const std::vector<cv::Point2f> &boxes, const cv::Mat &binary)
     max_y = Clamp(std::floor(max_y), 0.0f, h - 1.0f);
 
     cv::Mat mask = cv::Mat::zeros(static_cast<int>(max_y - min_y + 1.0f), static_cast<int>(max_x - min_x + 1.0f), CV_8UC1);
-    
+
     cv::Point box[4];
     box[0] = cv::Point(static_cast<int>(boxes[0].x - min_x), static_cast<int>(boxes[0].y - min_y));
     box[1] = cv::Point(static_cast<int>(boxes[1].x - min_x), static_cast<int>(boxes[1].y - min_y));
@@ -157,7 +157,7 @@ cv::Mat GetRotatedCropImage(const cv::Mat &image, std::vector<cv::Point> points)
         cv::Point2f(points[1].x, points[1].y),
         cv::Point2f(points[2].x, points[2].y),
         cv::Point2f(points[3].x, points[3].y)
-        
+
     };
     std::vector<cv::Point2f> dst_pts = {
         cv::Point2f(0.0f, 0.0f),

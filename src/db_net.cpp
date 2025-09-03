@@ -64,7 +64,7 @@ std::vector<TextBox> DBNet::Det(const cv::Mat &image) const
     // resize
     const int target_size = std::min(config_.max_side_len + 2 * padding,
         std::max(pad_image.rows, pad_image.cols));
-    
+
     int img_rows = pad_image.rows, img_cols = pad_image.cols;
     float ratio = static_cast<float>(target_size) / std::max(img_rows, img_cols);
     int rsz_rows = std::max(static_cast<int>(img_rows * ratio) / target_stride_ * target_stride_, target_stride_);

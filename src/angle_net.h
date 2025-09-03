@@ -35,7 +35,7 @@ public:
 private:
     ClsConfig config_{};
     std::unique_ptr<ncnn::Net> net_{};
-    
+
     static inline const int target_w_ = 192, target_h_ = 48;
     static inline const float mean_values_[3]{127.5f, 127.5f, 127.5f};
     static inline const float norm_values_[3]{1.0f / 127.5f, 1.0f / 127.5f, 1.0f / 127.5f};

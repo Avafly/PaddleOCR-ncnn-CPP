@@ -176,7 +176,7 @@ std::vector<OCRResult> OCREngine::Run(const cv::Mat &image) const
     rec_time = cv::getTickCount();
 
     auto text_lines = rec_net_->Rec(text_images);
-    
+
     rec_time = (cv::getTickCount() - rec_time) / cv::getTickFrequency() * 1000.0;
 
     std::vector<OCRResult> results(text_lines.size());
@@ -211,7 +211,7 @@ void OCREngine::ShowConfig() const
         "bitmap_thres(%.2f) unclip_ratio(%.2f) fp16(%d)",
         det_config.infer_threads, det_config.padding, det_config.max_side_len,
         det_config.box_thres, det_config.bitmap_thres, det_config.unclip_ratio, det_config.is_fp16);
-    
+
     PLOGD << "Cls config";
     PLOGD.printf("  infer_threads(%d) reco_threads(%d) enable(%d) most_angle(%d) fp16(%d)",
         cls_config.infer_threads, cls_config.reco_threads, cls_config.enable, cls_config.most_angle, cls_config.is_fp16);
