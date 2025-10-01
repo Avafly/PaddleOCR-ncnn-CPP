@@ -1,5 +1,5 @@
-#ifndef CRNN_OCR_H_
-#define CRNN_OCR_H_
+#ifndef CRNN_NET_H_
+#define CRNN_NET_H_
 
 #include <memory>
 #include <vector>
@@ -49,4 +49,4 @@ private:
 
 }   // namespace OCR
 
-#endif  // CRNN_OCR_H_
+#endif  // CRNN_NET_H_

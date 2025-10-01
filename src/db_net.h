@@ -1,5 +1,5 @@
-#ifndef DB_OCR_H_
-#define DB_OCR_H_
+#ifndef DB_NET_H_
+#define DB_NET_H_
 
 #include <memory>
 #include <vector>
@@ -48,4 +48,4 @@ private:
 
 }   // namespace OCR
 
-#endif  // DB_OCR_H_
+#endif  // DB_NET_H_

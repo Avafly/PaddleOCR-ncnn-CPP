@@ -1,5 +1,5 @@
-#ifndef ANGLE_OCR_H_
-#define ANGLE_OCR_H_
+#ifndef ANGLE_NET_H_
+#define ANGLE_NET_H_
 
 #include <vector>
 #include <memory>
@@ -47,4 +47,4 @@ private:
 
 }   // namespace OCR
 
-#endif  // ANGLE_OCR_H_
+#endif  // ANGLE_NET_H_
