@@ -18,10 +18,10 @@ The Release page contains a complete project archive that includes resources lik
 
 I ran benchmarks on a RPi 4B using `ocr_img1.png` (simple) and `ocr_img3.png` (complex). You can find those images inside the release page `archive.tar.gz`.
 
-|  Models  | Latency for ocr_img1 | Latency for ocr_img3 |
-| :------: | :------------------: | :------------------: |
-| PP-OCRv3 |       387.80ms       |      5213.68ms       |
-| PP-OCRv5 |       387.05ms       |      6740.93ms       |
+|  Models  | Latency / Peak memory for ocr_img1 | Latency / Peak memory for ocr_img3 |
+| :------: | :--------------------------------: | :--------------------------------: |
+| PP-OCRv3 |        387.80 ms / 101.3 MB        |        5213.68ms / 273.6 MB        |
+| PP-OCRv5 |        387.05 ms / 98.95 MB        |        6740.93ms / 335.7 MB        |
 
 ## Notes
 
