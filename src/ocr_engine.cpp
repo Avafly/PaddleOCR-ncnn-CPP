@@ -21,9 +21,14 @@ T GetJValue(const nlohmann::json &json, const std::vector<std::string> &keys, co
         for (const auto &key : keys)
         {
             if (current->contains(key))
+            {
                 current = &((*current)[key]);
+            }
             else
-                throw std::runtime_error("Failed to find key: " + key);
+            {
+                PLOGW << "Failed to find key: " << key << ", use default value: " << dft;
+                return dft;
+            }
         }
         return current->get<T>();
     }
