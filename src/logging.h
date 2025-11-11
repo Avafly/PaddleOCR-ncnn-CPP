@@ -17,9 +17,7 @@ namespace plog
         static util::nstring format(const Record &record)
         {
             util::nostringstream ss;
-            util::nstring severity_str = severityToString(record.getSeverity());
-            if (!severity_str.empty())
-                ss << PLOG_NSTR("[") << severity_str[0] << PLOG_NSTR("] ");
+            ss << PLOG_NSTR("[") << severityToString(record.getSeverity())[0] << PLOG_NSTR("] ");
             ss << PLOG_NSTR("[") << record.getFunc() << PLOG_NSTR("@") << record.getLine() << PLOG_NSTR("] ");
             ss << record.getMessage() << PLOG_NSTR("\n");
 
