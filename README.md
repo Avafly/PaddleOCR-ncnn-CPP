@@ -14,6 +14,11 @@ The Release page contains a complete project archive that includes resources lik
 ./main ../config.json ../images/ocr_img1.png
 ```
 
+## Requirements
+
+* OpenCV 4.10.0
+* ncnn 20241226
+
 ## Benchmarks
 
 I ran benchmarks on a RPi 4B using `ocr_img1.png` (simple) and `ocr_img3.png` (complex). You can find those images inside the release page `archive.tar.gz`.
