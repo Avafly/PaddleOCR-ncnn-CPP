@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     if (!ocr.Initialize(argv[1]))
         return -1;
 
-    // load iamge
+    // load image
     cv::Mat image = cv::imread(argv[2], cv::IMREAD_COLOR_BGR);
     if (image.empty())
         return -1;

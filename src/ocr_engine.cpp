@@ -81,7 +81,7 @@ bool OCREngine::Initialize(const std::string &config_path)
     }
     catch(const nlohmann::json::exception &e)
     {
-        PLOGE << "Failed to read JSON config from" << config_path << ": " << e.what();
+        PLOGE << "Failed to read JSON config from " << config_path << ": " << e.what();
         return false;
     }
 
