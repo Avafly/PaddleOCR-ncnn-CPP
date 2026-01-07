@@ -18,6 +18,7 @@ The Release page contains a complete project archive that includes resources lik
 
 * OpenCV 4.10.0
 * ncnn 20241226
+* OpenMP 3.0+
 
 ## Benchmarks
 
