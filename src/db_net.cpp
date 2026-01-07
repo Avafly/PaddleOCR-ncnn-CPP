@@ -57,7 +57,7 @@ std::vector<TextBox> DBNet::Det(const cv::Mat &image) const
 {
     // padding
     const int padding = config_.padding;
-    cv::Mat pad_image = image.clone();
+    cv::Mat pad_image = image;
     cv::copyMakeBorder(image, pad_image, padding, padding, padding, padding,
         cv::BORDER_CONSTANT | cv::BORDER_ISOLATED, cv::Scalar(255.0, 255.0, 255.0));
 
@@ -91,7 +91,7 @@ std::vector<TextBox> DBNet::Det(const cv::Mat &image) const
 
     cv::Mat pred(out.h, out.w, CV_8UC1);
     out.to_pixels(pred.data, ncnn::Mat::PIXEL_GRAY);
-    cv::Mat bitmap = pred > config_.bitmap_thres;
+    cv::Mat bitmap = pred > static_cast<uint8_t>(config_.bitmap_thres * 255.0f);
 
     // get boxes from bitmap
     auto text_boxes = FindBoxesFromBitmap(pred, bitmap, img_rows, img_cols, ratio_rows, ratio_cols);
