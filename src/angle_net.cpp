@@ -123,7 +123,7 @@ cv::Mat AngleNet::SmartResize(const cv::Mat &image, const float max_downscale) c
     if (rsz_w < target_w_)
     {
         // resize then padding with gray pixels
-        cv::resize(image, rsz_image, cv::Size(target_w_, target_h_));
+        cv::resize(image, rsz_image, cv::Size(rsz_w, target_h_));
         cv::copyMakeBorder(rsz_image, rsz_image, 0, 0, 0, target_w_ - rsz_w,
             cv::BORDER_CONSTANT, cv::Scalar(114.0, 114.0, 114.0));
     }
