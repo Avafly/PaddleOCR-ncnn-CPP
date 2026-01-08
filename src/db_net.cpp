@@ -76,7 +76,7 @@ std::vector<TextBox> DBNet::Det(const cv::Mat &image) const
         img_cols, img_rows, rsz_cols, rsz_rows, ratio_cols, ratio_rows);
 
     ncnn::Mat blob = ncnn::Mat::from_pixels_resize(
-        pad_image.data, ncnn::Mat::PIXEL_RGB, img_cols, img_rows, rsz_cols, rsz_rows);
+        pad_image.data, ncnn::Mat::PIXEL_BGR, img_cols, img_rows, rsz_cols, rsz_rows);
     blob.substract_mean_normalize(mean_values_, norm_values_);
 
     // inference

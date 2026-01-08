@@ -94,7 +94,7 @@ Angle AngleNet::Cls(const cv::Mat &image) const
     // resize image
     cv::Mat rsz_image = SmartResize(image, 3.0f);
 
-    ncnn::Mat blob = ncnn::Mat::from_pixels(rsz_image.data, ncnn::Mat::PIXEL_RGB, rsz_image.cols, rsz_image.rows);
+    ncnn::Mat blob = ncnn::Mat::from_pixels(rsz_image.data, ncnn::Mat::PIXEL_BGR, rsz_image.cols, rsz_image.rows);
     blob.substract_mean_normalize(mean_values_, norm_values_);
 
     // inference

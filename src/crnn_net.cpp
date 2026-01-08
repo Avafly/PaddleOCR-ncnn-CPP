@@ -89,7 +89,7 @@ TextLine CRNNNet::Rec(const cv::Mat &text_image) const
     float ratio = static_cast<float>(target_h_) / text_image.rows;
     int rsz_w = text_image.cols * ratio;
 
-    ncnn::Mat blob = ncnn::Mat::from_pixels_resize(text_image.data, ncnn::Mat::PIXEL_RGB,
+    ncnn::Mat blob = ncnn::Mat::from_pixels_resize(text_image.data, ncnn::Mat::PIXEL_BGR,
         text_image.cols, text_image.rows, rsz_w, target_h_);
     blob.substract_mean_normalize(mean_values_, norm_values_);
 
