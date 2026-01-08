@@ -167,7 +167,8 @@ cv::Mat GetRotatedCropImage(const cv::Mat &image, std::vector<cv::Point> points)
     cv::Mat pers_mat = cv::getPerspectiveTransform(src_pts, dst_pts, cv::DECOMP_LU);
 
     cv::Mat text_image;
-    cv::warpPerspective(crop_image, text_image, pers_mat, cv::Size(crop_w, crop_h), cv::BORDER_REPLICATE);
+    cv::warpPerspective(crop_image, text_image, pers_mat,
+        cv::Size(crop_w, crop_h), cv::INTER_NEAREST, cv::BORDER_CONSTANT);
 
     if (static_cast<float>(text_image.rows) >= text_image.cols * 1.5f)
     {
