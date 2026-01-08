@@ -46,14 +46,6 @@ bool CRNNNet::Initialize(const RecConfig &config)
     net_->opt.use_fp16_storage = config_.is_fp16;
     net_->opt.use_fp16_arithmetic = config_.is_fp16;
 
-    if (net_->load_param((config_.model_path + ".param").c_str()) ||
-        net_->load_model((config_.model_path + ".bin").c_str()))
-    {
-        PLOGE << "Failed to load model " << config_.model_path;
-        net_.reset();
-        return false;
-    }
-
     // load keys
     std::string line;
     std::ifstream ifs{config_.keys_path};
@@ -64,8 +56,15 @@ bool CRNNNet::Initialize(const RecConfig &config)
     }
     while (std::getline(ifs, line))
         keys_.emplace_back(line);
-
     PLOGD << "Total keys: " << keys_.size();
+
+    if (net_->load_param((config_.model_path + ".param").c_str()) ||
+        net_->load_model((config_.model_path + ".bin").c_str()))
+    {
+        PLOGE << "Failed to load model " << config_.model_path;
+        net_.reset();
+        return false;
+    }
 
     return true;
 }
