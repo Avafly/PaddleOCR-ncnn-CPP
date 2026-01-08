@@ -103,7 +103,7 @@ Angle AngleNet::Cls(const cv::Mat &image) const
     ncnn::Mat out;
     ex.extract("output", out);
 
-    // socre to angle
+    // score to angle
     float *arr = reinterpret_cast<float *>(out.data);
     std::vector<float> scores(arr, arr + out.w);
 
