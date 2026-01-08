@@ -57,7 +57,7 @@ std::vector<TextBox> DBNet::Det(const cv::Mat &image) const
 {
     // padding
     const int padding = config_.padding;
-    cv::Mat pad_image = image;
+    cv::Mat pad_image;
     cv::copyMakeBorder(image, pad_image, padding, padding, padding, padding,
         cv::BORDER_CONSTANT | cv::BORDER_ISOLATED, cv::Scalar(255.0, 255.0, 255.0));
 
