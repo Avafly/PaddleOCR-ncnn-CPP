@@ -54,6 +54,7 @@ bool CRNNNet::Initialize(const RecConfig &config)
         PLOGE << "Failed to load keys " << config_.keys_path;
         return false;
     }
+    keys_.clear();
     while (std::getline(ifs, line))
         keys_.emplace_back(line);
     PLOGD << "Total keys: " << keys_.size();
