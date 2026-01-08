@@ -80,7 +80,7 @@ float BoxScoreFast(const std::vector<cv::Point2f> &boxes, const cv::Mat &binary)
     cv::fillPoly(mask, pts, npts, 1, cv::Scalar(1.0));
 
     cv::Mat crop_image = binary(cv::Rect(static_cast<int>(min_x), static_cast<int>(min_y),
-        static_cast<int>(max_x - min_x + 1.0f), static_cast<int>(max_y - min_y + 1))).clone();
+        static_cast<int>(max_x - min_x + 1.0f), static_cast<int>(max_y - min_y + 1.0f)));
     return static_cast<float>(cv::mean(crop_image, mask)[0] / 255.0);
 }
 
