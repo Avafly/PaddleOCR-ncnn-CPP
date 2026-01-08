@@ -65,10 +65,10 @@ float BoxScoreFast(const std::vector<cv::Point2f> &boxes, const cv::Mat &binary)
 
     auto [min_x, max_x] = std::minmax({boxes[0].x, boxes[1].x, boxes[2].x, boxes[3].x});
     auto [min_y, max_y] = std::minmax({boxes[0].y, boxes[1].y, boxes[2].y, boxes[3].y});
-    min_x = Clamp(std::floor(min_x), 0.0f, w - 1.0f);
-    max_x = Clamp(std::floor(max_x), 0.0f, w - 1.0f);
-    min_y = Clamp(std::floor(min_y), 0.0f, h - 1.0f);
-    max_y = Clamp(std::floor(max_y), 0.0f, h - 1.0f);
+    min_x = std::clamp(std::floor(min_x), 0.0f, w - 1.0f);
+    max_x = std::clamp(std::floor(max_x), 0.0f, w - 1.0f);
+    min_y = std::clamp(std::floor(min_y), 0.0f, h - 1.0f);
+    max_y = std::clamp(std::floor(max_y), 0.0f, h - 1.0f);
 
     cv::Mat mask = cv::Mat::zeros(static_cast<int>(max_y - min_y + 1.0f), static_cast<int>(max_x - min_x + 1.0f), CV_8UC1);
 
