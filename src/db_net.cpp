@@ -103,8 +103,7 @@ std::vector<TextBox> DBNet::FindBoxesFromBitmap(const cv::Mat &pred, const cv::M
     const int img_rows, const int img_cols, const float ratio_rows, const float ratio_cols) const
 {
     std::vector<std::vector<cv::Point>> contours;
-    std::vector<cv::Vec4i> hierarchy;
-    cv::findContours(bitmap, contours, hierarchy, cv::RETR_LIST, cv::CHAIN_APPROX_SIMPLE);
+    cv::findContours(bitmap, contours, cv::RETR_LIST, cv::CHAIN_APPROX_SIMPLE);
     size_t num_contours = std::min(contours.size(), max_candidates_);
 
     std::vector<TextBox> text_boxes;
