@@ -24,10 +24,8 @@ std::vector<cv::Point2f> GetMinBoxes(const cv::RotatedRect &rrect, int &max_side
     cv::Point2f vertices[4];
     rrect.points(vertices);
     std::vector<cv::Point2f> box_points = std::vector<cv::Point2f>(vertices, vertices + 4);
-    std::sort(box_points.begin(), box_points.end(), [](const cv::Point &a, const cv::Point &b)
-    {
-        return a.x < b.x;
-    });
+    std::sort(box_points.begin(), box_points.end(),
+        [](const cv::Point2f &a, const cv::Point2f &b) { return a.x < b.x; });
 
     int i0, i1, i2, i3;
     if (box_points[1].y > box_points[0].y)
