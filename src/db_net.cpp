@@ -141,7 +141,7 @@ std::vector<TextBox> DBNet::FindBoxesFromBitmap(const cv::Mat &pred, const cv::M
                 0, img_rows - 2 * config_.padding - 1);
             text_points.emplace_back(cv::Point{x, y});
         }
-        text_boxes.emplace_back(TextBox{text_points, box_score});
+        text_boxes.emplace_back(TextBox{std::move(text_points), box_score});
     }
     std::reverse(text_boxes.begin(), text_boxes.end());
 

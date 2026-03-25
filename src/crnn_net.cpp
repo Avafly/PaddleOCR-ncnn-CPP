@@ -136,7 +136,7 @@ TextLine CRNNNet::Score2TextLine(const std::vector<float> &scores, const int row
 
     Trim(text);
 
-    return {text, text_scores};
+    return {std::move(text), std::move(text_scores)};
 }
 
 }   // namespace OCR

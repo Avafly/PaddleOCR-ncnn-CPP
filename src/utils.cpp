@@ -106,15 +106,14 @@ cv::RotatedRect Unclip(const std::vector<cv::Point2f> &boxes, const float unclip
 {
     float distance = GetUnclipDistance(boxes, unclip_ratio);
 
-    Clipper2Lib::Path64 path{
+    Clipper2Lib::Paths64 paths;
+    paths.emplace_back(Clipper2Lib::Path64{
         Clipper2Lib::Point64(boxes[0].x, boxes[0].y),
         Clipper2Lib::Point64(boxes[1].x, boxes[1].y),
         Clipper2Lib::Point64(boxes[2].x, boxes[2].y),
         Clipper2Lib::Point64(boxes[3].x, boxes[3].y)
-    };
-
-    Clipper2Lib::Paths64 paths_in{path};
-    Clipper2Lib::Paths64 soln = Clipper2Lib::InflatePaths(paths_in, distance,
+    });
+    Clipper2Lib::Paths64 soln = Clipper2Lib::InflatePaths(paths, distance,
         Clipper2Lib::JoinType::Round, Clipper2Lib::EndType::Polygon);
 
     std::vector<cv::Point2f> points;
