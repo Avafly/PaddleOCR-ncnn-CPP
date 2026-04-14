@@ -150,7 +150,7 @@ std::vector<OCRResult> OCREngine::Run(const cv::Mat &image) const
     double det_time{}, cls_time{}, rec_time{}, total_time{};
 
     // 1. Text Detection
-    total_time = det_time = cv::getTickCount();
+    total_time = det_time = static_cast<double>(cv::getTickCount());
 
     auto text_boxes = det_net_->Det(image);
 
@@ -164,7 +164,7 @@ std::vector<OCRResult> OCREngine::Run(const cv::Mat &image) const
     }
 
     // 2. Handle Angle
-    cls_time = cv::getTickCount();
+    cls_time = static_cast<double>(cv::getTickCount());
 
     auto angles = cls_net_->Cls(text_images);
 
@@ -178,7 +178,7 @@ std::vector<OCRResult> OCREngine::Run(const cv::Mat &image) const
     }
 
     // 3. Recognize Text
-    rec_time = cv::getTickCount();
+    rec_time = static_cast<double>(cv::getTickCount());
 
     auto text_lines = rec_net_->Rec(text_images);
 

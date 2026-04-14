@@ -109,7 +109,7 @@ Angle AngleNet::Cls(const cv::Mat &image) const
     std::vector<float> scores(arr, arr + out.w);
 
     auto max_it = std::max_element(scores.begin(), scores.end());
-    int max_i = std::distance(scores.begin(), max_it);
+    int max_i = static_cast<int>(std::distance(scores.begin(), max_it));
     float max_score = *max_it;
 
     return {max_i == 1, max_score};
@@ -118,7 +118,7 @@ Angle AngleNet::Cls(const cv::Mat &image) const
 cv::Mat AngleNet::SmartResize(const cv::Mat &image, const float max_downscale) const
 {
     float ratio = static_cast<float>(target_h_) / image.rows;
-    int rsz_w = image.cols * ratio;
+    int rsz_w = static_cast<int>(image.cols * ratio);
     cv::Mat rsz_image;
 
     if (rsz_w < target_w_)
@@ -136,7 +136,7 @@ cv::Mat AngleNet::SmartResize(const cv::Mat &image, const float max_downscale) c
     else
     {
         // resize with width compression and crop
-        cv::Mat crop_image = image(cv::Rect(0, 0, max_downscale * target_w_ / ratio, image.rows));
+        cv::Mat crop_image = image(cv::Rect(0, 0, static_cast<int>(max_downscale * target_w_ / ratio), image.rows));
         cv::resize(crop_image, rsz_image, cv::Size(target_w_, target_h_));
     }
 

@@ -88,7 +88,7 @@ TextLine CRNNNet::Rec(const cv::Mat &text_image) const
 {
     // resize
     float ratio = static_cast<float>(target_h_) / text_image.rows;
-    int rsz_w = text_image.cols * ratio;
+    int rsz_w = static_cast<int>(text_image.cols * ratio);
 
     ncnn::Mat blob = ncnn::Mat::from_pixels_resize(text_image.data, ncnn::Mat::PIXEL_BGR,
         text_image.cols, text_image.rows, rsz_w, target_h_);
@@ -123,7 +123,7 @@ TextLine CRNNNet::Score2TextLine(const std::vector<float> &scores, const int row
     for (int i = 0; i < rows; ++i)
     {
         auto max_it = std::max_element(scores.begin() + i * cols, scores.begin() + (i + 1) * cols);
-        int max_i = std::distance(scores.begin(), max_it);
+        int max_i = static_cast<int>(std::distance(scores.begin(), max_it));
         max_i %= cols;
         float max_v = *max_it;
 

@@ -18,7 +18,7 @@ int GetThreads(const int threads)
 
 std::vector<cv::Point2f> GetMinBoxes(const cv::RotatedRect &rrect, int &max_side_len)
 {
-    max_side_len = std::max(rrect.size.width, rrect.size.height);
+    max_side_len = static_cast<int>(std::max(rrect.size.width, rrect.size.height));
 
     // get box
     cv::Point2f vertices[4];
@@ -150,17 +150,16 @@ cv::Mat GetRotatedCropImage(const cv::Mat &image, std::vector<cv::Point> points)
     int crop_h = static_cast<int>(std::sqrt(std::pow(points[0].x - points[3].x, 2) + std::pow(points[0].y - points[3].y, 2)));
 
     std::vector<cv::Point2f> src_pts = {
-        cv::Point2f(points[0].x, points[0].y),
-        cv::Point2f(points[1].x, points[1].y),
-        cv::Point2f(points[2].x, points[2].y),
-        cv::Point2f(points[3].x, points[3].y)
-
+        cv::Point2f(static_cast<float>(points[0].x), static_cast<float>(points[0].y)),
+        cv::Point2f(static_cast<float>(points[1].x), static_cast<float>(points[1].y)),
+        cv::Point2f(static_cast<float>(points[2].x), static_cast<float>(points[2].y)),
+        cv::Point2f(static_cast<float>(points[3].x), static_cast<float>(points[3].y))
     };
     std::vector<cv::Point2f> dst_pts = {
         cv::Point2f(0.0f, 0.0f),
-        cv::Point2f(crop_w, 0.0f),
-        cv::Point2f(crop_w, crop_h),
-        cv::Point2f(0.0f, crop_h)
+        cv::Point2f(static_cast<float>(crop_w), 0.0f),
+        cv::Point2f(static_cast<float>(crop_w), static_cast<float>(crop_h)),
+        cv::Point2f(0.0f, static_cast<float>(crop_h))
     };
 
     cv::Mat pers_mat = cv::getPerspectiveTransform(src_pts, dst_pts, cv::DECOMP_LU);
