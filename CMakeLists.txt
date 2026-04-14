@@ -17,17 +17,27 @@ else()
 endif()
 
 # libs path
-set(LIB_ROOT "$ENV{HOME}/Documents/libs")
+if(NOT DEFINED LIB_ROOT)
+    if(WIN32)
+        set(LIB_ROOT "$ENV{USERPROFILE}/Documents/libs")
+    else()
+        set(LIB_ROOT "$ENV{HOME}/Documents/libs")
+    endif()
+endif()
 
 # opencv
-set(OpenCV_DIR "${LIB_ROOT}/opencv/lib/cmake/opencv4")
+if(NOT DEFINED OpenCV_DIR)
+    set(OpenCV_DIR "${LIB_ROOT}/opencv/lib/cmake/opencv4")
+endif()
 find_package(OpenCV REQUIRED)
 find_package(Iconv QUIET)
 find_package(OpenEXR QUIET)
 # openmp
 find_package(OpenMP REQUIRED)
 # ncnn
-set(ncnn_DIR "${LIB_ROOT}/ncnn/lib/cmake/ncnn")
+if(NOT DEFINED ncnn_DIR)
+    set(ncnn_DIR "${LIB_ROOT}/ncnn/lib/cmake/ncnn")
+endif()
 find_package(ncnn REQUIRED)
 
 # main

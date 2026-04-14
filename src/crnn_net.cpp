@@ -74,8 +74,9 @@ std::vector<TextLine> CRNNNet::Rec(const std::vector<cv::Mat> &text_images) cons
 {
     std::vector<TextLine> text_lines(text_images.size());
 
+    int num_lines = static_cast<int>(text_images.size());
     #pragma omp parallel for num_threads(config_.reco_threads) schedule(dynamic)
-    for (size_t i = 0; i < text_lines.size(); ++i)
+    for (int i = 0; i < num_lines; ++i)
     {
         text_lines[i] = Rec(text_images[i]);
     }

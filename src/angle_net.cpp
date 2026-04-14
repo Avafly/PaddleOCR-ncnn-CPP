@@ -63,8 +63,9 @@ std::vector<Angle> AngleNet::Cls(const std::vector<cv::Mat> &text_images) const
     }
 
     // get angles
+    int num_images = static_cast<int>(text_images.size());
     #pragma omp parallel for num_threads(config_.reco_threads) schedule(static)
-    for (size_t i = 0; i < text_images.size(); ++i)
+    for (int i = 0; i < num_images; ++i)
     {
         angles[i] = Cls(text_images[i]);
     }
