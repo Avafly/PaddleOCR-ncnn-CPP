@@ -29,6 +29,12 @@ I ran benchmarks on a RPi 4B using `ocr_img1.png` (simple) and `ocr_img3.png` (c
 | PP-OCRv3 |        387.80 ms / 101.3 MB        |       5213.68 ms / 273.6 MB        |
 | PP-OCRv5 |        387.05 ms / 98.95 MB        |       6740.93 ms / 335.7 MB        |
 
+## Tested on
+
+* macOS 15
+* Debian 12
+* Windows 10/11
+
 ## Notes
 
 Enabling FP16 may be faster but can cause NaN results on some devices. Edit `config.json` to enable or disable FP16.
