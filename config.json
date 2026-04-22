@@ -2,18 +2,18 @@
     "save": true,
     "det": {
         "infer_threads": -1,
-        "model_path": "../models/PP-OCRv5_mobile_det",
+        "model_path": "../models/PP_OCRv5_mobile_det",
         "padding": 0,
         "max_side_len": 768,
         "box_thres": 0.5,
         "bitmap_thres": 0.3,
-        "unclip_ratio": 2.0,
+        "unclip_ratio": 1.58,
         "fp16": false
     },
     "cls": {
         "infer_threads": 1,
         "reco_threads": -1,
-        "model_path": "../models/ch_ppocr_mobile_v2.0_cls_infer",
+        "model_path": "../models/PP_LCNet_x0_25_textline_ori",
         "enable": true,
         "most_angle": true,
         "fp16": false
@@ -21,7 +21,7 @@
     "rec": {
         "infer_threads": 1,
         "reco_threads": -1,
-        "model_path": "../models/PP-OCRv5_mobile_rec",
+        "model_path": "../models/PP_OCRv5_mobile_rec",
         "keys_path": "../models/ppocr_keys_v5.txt",
         "fp16": false
     }
