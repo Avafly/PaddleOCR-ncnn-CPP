@@ -1,6 +1,6 @@
-This repository provides C++ implementations of PP-OCRv3 and PP-OCRv5, inspired by the official [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) project and using [ncnn](https://github.com/Tencent/ncnn) for inference.
+This repository provides C++ implementations of PP-OCRv3/4/5, inspired by the official [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) project and using [ncnn](https://github.com/Tencent/ncnn) for inference.
 
-The Release page contains a complete project archive that includes resources like models (v3 & v5) and images required to run the demo.
+The Release page contains a complete project archive that includes resources like models and images required to run the demo.
 
 ## Demo
 
@@ -22,12 +22,16 @@ The Release page contains a complete project archive that includes resources lik
 
 ## Benchmarks
 
-I ran benchmarks on a RPi 4B using `ocr_img1.png` (simple) and `ocr_img3.png` (complex). You can find those images inside the release page `archive.tar.gz`.
+I ran benchmarks on a VPS using `ocr_img1.png` (simple) and `ocr_img3.png` (complex). You can find those images inside the release page `archive.tar.gz`.
 
-|  Models  | Latency / Peak memory for ocr_img1 | Latency / Peak memory for ocr_img3 |
-| :------: | :--------------------------------: | :--------------------------------: |
-| PP-OCRv3 |        387.80 ms / 101.3 MB        |       5213.68 ms / 273.6 MB        |
-| PP-OCRv5 |        387.05 ms / 98.95 MB        |       6740.93 ms / 335.7 MB        |
+CPU: 2 x Intel(R) Xeon(R) Platinum (2) @ 2.50 GHz
+
+|     Models      | Latency / Peak memory for ocr_img1 | Latency / Peak memory for ocr_img3 |
+| :-------------: | :--------------------------------: | :--------------------------------: |
+|    PP-OCRv3     |        88.09 ms / 106.2 MB         |        926.34 ms / 228.3 MB        |
+|    PP-OCRv4     |        90.44 ms / 97.57 MB         |       1005.45 ms / 211.5 MB        |
+|    PP-OCRv5     |        92.17 ms / 106.1 MB         |       1062.56 ms / 292.2 MB        |
+| PP-OCRv5 server |       3948.50 ms / 1.545 GB        |          11172.83 ms / -           |
 
 ## Tested on
 
