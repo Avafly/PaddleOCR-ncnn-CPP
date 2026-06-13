@@ -1,4 +1,4 @@
-This repository provides C++ implementations of PP-OCRv3/4/5, inspired by the official [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) project and using [ncnn](https://github.com/Tencent/ncnn) for inference.
+This repository provides C++ implementations of PP-OCRv3/4/5/6, inspired by the official [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) project and using [ncnn](https://github.com/Tencent/ncnn) for inference.
 
 The Release page contains a complete project archive that includes resources like models and images required to run the demo.
 
@@ -31,7 +31,10 @@ CPU: 2 x Intel(R) Xeon(R) Platinum (2) @ 2.50 GHz
 |    PP-OCRv3     |        88.09 ms / 106.2 MB         |        926.34 ms / 228.3 MB        |
 |    PP-OCRv4     |        90.44 ms / 97.57 MB         |       1005.45 ms / 211.5 MB        |
 |    PP-OCRv5     |        92.17 ms / 106.1 MB         |       1062.56 ms / 292.2 MB        |
-| PP-OCRv5 server |       3948.50 ms / 1.545 GB        |          11172.83 ms / -           |
+| PP-OCRv5 server |       3948.50 ms / 1.545 GB        |         11172.83 ms / OOM          |
+|  PP-OCRv6 tiny  |        67.45 ms / 62.22 MB         |        420.28 ms / 156.7 MB        |
+| PP-OCRv6 small  |        139.36 ms / 127.7 MB        |       1590.45 ms / 351.4 MB        |
+| PP-OCRv6 medium |        584.79 ms / 425.3 MB        |       6298.11 ms / 706.2 MB        |
 
 ## Tested on
 
