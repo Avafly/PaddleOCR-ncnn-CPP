@@ -61,8 +61,11 @@ float BoxScoreFast(const std::vector<cv::Point2f> &boxes, const cv::Mat &binary)
 {
     int w = binary.cols, h = binary.rows;
 
-    auto [min_x, max_x] = std::minmax({boxes[0].x, boxes[1].x, boxes[2].x, boxes[3].x});
-    auto [min_y, max_y] = std::minmax({boxes[0].y, boxes[1].y, boxes[2].y, boxes[3].y});
+    float min_x = std::min({boxes[0].x, boxes[1].x, boxes[2].x, boxes[3].x});
+    float max_x = std::max({boxes[0].x, boxes[1].x, boxes[2].x, boxes[3].x});
+    float min_y = std::min({boxes[0].y, boxes[1].y, boxes[2].y, boxes[3].y});
+    float max_y = std::max({boxes[0].y, boxes[1].y, boxes[2].y, boxes[3].y});
+
     min_x = std::clamp(std::floor(min_x), 0.0f, w - 1.0f);
     max_x = std::clamp(std::floor(max_x), 0.0f, w - 1.0f);
     min_y = std::clamp(std::floor(min_y), 0.0f, h - 1.0f);
