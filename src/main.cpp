@@ -1,7 +1,17 @@
+#include "common.h"
 #include "logging.h"
 #include "ocr_engine.h"
 
-#include <opencv2/opencv.hpp>
+#include "plog/Appenders/ConsoleAppender.h"
+#include "plog/Init.h"
+#include "plog/Log.h"
+#include "plog/Record.h"
+#include "plog/Severity.h"
+
+#include <opencv2/core/mat.hpp>
+#include <opencv2/imgcodecs.hpp>
+
+#include <string>
 
 int main(int argc, char *argv[])
 {

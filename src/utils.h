@@ -1,8 +1,11 @@
 #ifndef UTILS_H_
 #define UTILS_H_
 
+#include <opencv2/core/mat.hpp>
+#include <opencv2/core/types.hpp>
+
+#include <string>
 #include <vector>
-#include <opencv2/opencv.hpp>
 
 namespace OCR
 {

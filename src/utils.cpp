@@ -1,12 +1,25 @@
-#include <cmath>
-#include <string>
-#include <algorithm>
-#include <string_view>
+#include "utils.h"
+
+#include <opencv2/core.hpp>
+#include <opencv2/core/base.hpp>
+#include <opencv2/core/hal/interface.h>
+#include <opencv2/core/mat.inl.hpp>
+#include <opencv2/core/matx.hpp>
+#include <opencv2/core/matx.inl.hpp>
+#include <opencv2/core/traits.hpp>
+#include <opencv2/imgproc.hpp>
+
 #include <omp.h>
 
-#include "clipper2/clipper.h"
+#include <algorithm>
+#include <cmath>
+#include <cstddef>
+#include <string>
+#include <string_view>
 
-#include "utils.h"
+#include "clipper2/clipper.core.h"
+#include "clipper2/clipper.h"
+#include "clipper2/clipper.offset.h"
 
 namespace OCR
 {

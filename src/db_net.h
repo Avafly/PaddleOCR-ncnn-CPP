@@ -1,14 +1,16 @@
 #ifndef DB_NET_H_
 #define DB_NET_H_
 
-#include <memory>
-#include <vector>
-
-#include <net.h>
-#include <opencv2/opencv.hpp>
-
 #include "common.h"
 #include "config.h"
+
+#include <opencv2/core/mat.hpp>
+
+#include <net.h>
+
+#include <cstddef>
+#include <memory>
+#include <vector>
 
 namespace OCR
 {

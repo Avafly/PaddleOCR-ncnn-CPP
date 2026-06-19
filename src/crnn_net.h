@@ -1,15 +1,16 @@
 #ifndef CRNN_NET_H_
 #define CRNN_NET_H_
 
-#include <memory>
-#include <vector>
-#include <string>
-
-#include <net.h>
-#include <opencv2/opencv.hpp>
-
 #include "common.h"
 #include "config.h"
+
+#include <opencv2/core/mat.hpp>
+
+#include <net.h>
+
+#include <memory>
+#include <string>
+#include <vector>
 
 namespace OCR
 {

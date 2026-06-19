@@ -1,12 +1,19 @@
-#include <utility>
-#include <fstream>
-#include <algorithm>
-#include <iterator>
+#include "crnn_net.h"
+
+#include "utils.h"
 
 #include "plog/Log.h"
+#include "plog/Record.h"
 
-#include "crnn_net.h"
-#include "utils.h"
+#include <opencv2/core/mat.hpp>
+
+#include <mat.h>
+#include <option.h>
+
+#include <algorithm>
+#include <fstream>
+#include <iterator>
+#include <utility>
 
 namespace OCR
 {

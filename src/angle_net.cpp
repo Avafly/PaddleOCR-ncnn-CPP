@@ -1,9 +1,22 @@
-#include <utility>
-#include <algorithm>
+#include "angle_net.h"
 
 #include "plog/Log.h"
+#include "plog/Record.h"
 
-#include "angle_net.h"
+#include <opencv2/core.hpp>
+#include <opencv2/core/base.hpp>
+#include <opencv2/core/mat.hpp>
+#include <opencv2/core/mat.inl.hpp>
+#include <opencv2/core/matx.inl.hpp>
+#include <opencv2/core/types.hpp>
+#include <opencv2/imgproc.hpp>
+
+#include <mat.h>
+#include <option.h>
+
+#include <algorithm>
+#include <iterator>
+#include <utility>
 
 namespace OCR
 {

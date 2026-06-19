@@ -1,17 +1,17 @@
 #ifndef OCR_ENGINE_H_
 #define OCR_ENGINE_H_
 
-#include <vector>
-#include <string>
-#include <memory>
-
-#include <opencv2/opencv.hpp>
-
+#include "angle_net.h"
 #include "common.h"
 #include "config.h"
-#include "db_net.h"
-#include "angle_net.h"
 #include "crnn_net.h"
+#include "db_net.h"
+
+#include <opencv2/core/mat.hpp>
+
+#include <memory>
+#include <string>
+#include <vector>
 
 namespace OCR
 {

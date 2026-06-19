@@ -1,14 +1,15 @@
 #ifndef ANGLE_NET_H_
 #define ANGLE_NET_H_
 
-#include <vector>
-#include <memory>
-
-#include <net.h>
-#include <opencv2/opencv.hpp>
-
 #include "common.h"
 #include "config.h"
+
+#include <opencv2/core/mat.hpp>
+
+#include <net.h>
+
+#include <memory>
+#include <vector>
 
 namespace OCR
 {

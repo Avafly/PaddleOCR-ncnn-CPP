@@ -1,13 +1,27 @@
-#include <utility>
-#include <fstream>
-#include <stdexcept>
-#include <filesystem>
-
-#include "json/json.hpp"
-#include "plog/Log.h"
+#include "ocr_engine.h"
 
 #include "utils.h"
-#include "ocr_engine.h"
+
+#include "plog/Log.h"
+#include "plog/Record.h"
+
+#include <opencv2/core.hpp>
+#include <opencv2/core/mat.hpp>
+#include <opencv2/core/mat.inl.hpp>
+#include <opencv2/core/matx.inl.hpp>
+#include <opencv2/core/traits.hpp>
+#include <opencv2/core/types.hpp>
+#include <opencv2/core/utility.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/imgproc.hpp>
+
+#include <cstddef>
+#include <exception>
+#include <filesystem>
+#include <fstream>
+#include <utility>
+
+#include "json/json.hpp"
 
 namespace
 {

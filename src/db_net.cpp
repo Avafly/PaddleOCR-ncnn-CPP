@@ -1,10 +1,33 @@
-#include <utility>
-#include <algorithm>
+#include "db_net.h"
+
+#include "common.h"
+#include "config.h"
+#include "utils.h"
 
 #include "plog/Log.h"
+#include "plog/Record.h"
 
-#include "utils.h"
-#include "db_net.h"
+#include <opencv2/core.hpp>
+#include <opencv2/core/base.hpp>
+#include <opencv2/core/hal/interface.h>
+#include <opencv2/core/mat.hpp>
+#include <opencv2/core/mat.inl.hpp>
+#include <opencv2/core/matx.inl.hpp>
+#include <opencv2/core/traits.hpp>
+#include <opencv2/core/types.hpp>
+#include <opencv2/imgproc.hpp>
+
+#include <mat.h>
+#include <net.h>
+#include <option.h>
+
+#include <algorithm>
+#include <cstddef>
+#include <cstdint>
+#include <memory>
+#include <string>
+#include <utility>
+#include <vector>
 
 namespace OCR
 {
