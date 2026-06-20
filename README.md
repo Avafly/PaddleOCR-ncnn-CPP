@@ -28,9 +28,9 @@ CPU: 2 x Intel(R) Xeon(R) Platinum (2) @ 2.50 GHz
 
 |     Models      | Latency / Peak memory for ocr_img1 | Latency / Peak memory for ocr_img3 |
 | :-------------: | :--------------------------------: | :--------------------------------: |
-|    PP-OCRv3     |        88.09 ms / 106.2 MB         |        926.34 ms / 228.3 MB        |
-|    PP-OCRv4     |        90.44 ms / 97.57 MB         |       1005.45 ms / 211.5 MB        |
-|    PP-OCRv5     |        92.17 ms / 106.1 MB         |       1062.56 ms / 292.2 MB        |
+| PP-OCRv3 mobile |        88.09 ms / 106.2 MB         |        926.34 ms / 228.3 MB        |
+| PP-OCRv4 mobile |        90.44 ms / 97.57 MB         |       1005.45 ms / 211.5 MB        |
+| PP-OCRv5 mobile |        92.17 ms / 106.1 MB         |       1062.56 ms / 292.2 MB        |
 | PP-OCRv5 server |       3948.50 ms / 1.545 GB        |         11172.83 ms / OOM          |
 |  PP-OCRv6 tiny  |        67.45 ms / 62.22 MB         |        420.28 ms / 156.7 MB        |
 | PP-OCRv6 small  |        139.36 ms / 127.7 MB        |       1590.45 ms / 351.4 MB        |
