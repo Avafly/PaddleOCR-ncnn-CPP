@@ -46,6 +46,8 @@ CPU: 2 x Intel(R) Xeon(R) Platinum (2) @ 2.50 GHz
 
 Enabling FP16 may be faster but can cause NaN results on some devices. Edit `config.json` to enable or disable FP16.
 
+It is recommended to use an ncnn version the same as or newer than the PNNX version used to convert the models.
+
 ## Implementation References
 
 https://github.com/MhLiao/DB
